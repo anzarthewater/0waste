@@ -5,8 +5,9 @@ import {
   onAuthStateChanged, 
   signOut,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  connectAuthEmulator
+  connectAuthEmulator,
+  updateProfile,
+  sendEmailVerification
 } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js';
 
   // Your web app's Firebase configuration
@@ -19,37 +20,41 @@ import {
     appId: "1:541327244207:web:2502bfb6ddfa1d25a6cd5a"
   };
 
-
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
-      //___________________________________________
-  
-  document.getElementById('error').style.color = "#020B0D";
+
   
     //___________________________________________
     
-   function signInEmail(email,password) {
- 
-	 signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-  var user = userCredential.user;
+
+      
+    //___________________________________________
+
   
-   if (user.emailVerified) {
-     var link = localStorage.getItem('link');
-    var linkRightNow = link;
-    localStorage.removeItem('link');
-    window.location.replace(link);
-    }
+    function emailVeri() {
+   sendEmailVerification(auth.currentUser)
+    .then(() => {
+  
+    });
+
+  }
+  
+   function signUpEmail(email,password) {
+  
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
     
-    else {
-     console.error('Not verified'); 
-    document.getElementById('error').style.color = "#E81818";
-    document.getElementById('error').textContent = "verify email";
-    signOut(auth);
-       }
-   
+    var user = userCredential.user;
+      updateProfile(user, {displayName: document.getElementById("name").value})
+    
+    emailVeri()
+    localStorage.setItem('email', document.getElementById('email').value); 
+    window.location.href = 'https://zerowaste-frontend.onrender.com/auth/verify';
+
+    // ...
   })
- 
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -60,15 +65,17 @@ import {
   });
   
   }
+  
+
     
   //___________________________________________
   
-  document.getElementById('signbutton').onclick = function() {
+  document.getElementById('signbutton').onmousedown = function() {
   
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
   
-  signInEmail(email, password);
+  signUpEmail(email, password);
   
 };
   

@@ -71,95 +71,63 @@ overflow: hidden;
 
 #signinbox {
    height: 90vh;
-    width: 60vh;
+    width: 140vh;
     background-color: #020B0D;
 border-radius: 17.5px;
 text-align: center;
-padding: 5vh 4vh 4vh;
+padding: 10vh 4vh 4vh;
 box-sizing: border-box;
 border: 1px solid #E4D24C;
 }
 
-.text {
+#signinbox p {
  color: #DDDEC8;
- margin: 0 0 0 1vh;
+ margin: 10vh 0 0 1vh;
  padding: 0;
  text-align: left;
- font-size: 2.5vh;
+ font-size: 5vh;
  font-family: Helvetica;
- 
-}
-
-#error {
-   color: #020B0D;
- margin: 0 0 2vh 0;
- padding: 0;
  text-align: center;
- font-size: 2.5vh;
- font-family: Helvetica;
- user-select: none;
 }
 
 #signinheader {
     width: 100%;
     color: #EBECD9;
-    font-size: 4.5vh;
+    font-size: 8vh;
      font-family: Helvetica;
-}
-
-.inputs {
-  width: 95%;
-  height: 10%;  
-  border-radius: 10px;
-  border: 1px solid #EBECD9;
-  margin: 3vh 0 3vh;
-  background-color: #130F0F;
-  padding-left: 2vh;
-  box-sizing: border-box;
-  font-size: 3.5vh;
-  color:#EBECD9;
-  outline: none;
-}
-
-.inputs:hover {
-  background-color: #1B1212;
-}
-
-.inputs:focus {
-  border: 1.5px solid white;
+    
 }
 
 #signinbutt {
    display: flex;
   justify-content: center;
   align-items: center;
-  height: 10%;
+  height: 15%;
   width: 100%;
   text-align: center;
-  margin-top: 5vh;
+  margin-top: 8vh;
 }
 
-#signinbutt p {
+#signinbutt a {
   display: flex;
   justify-content: center;
   align-items: center;
- width: 50%;
+ width: 30%;
 height: 100%;
-font-size: 2.5vh;
+font-size: 4vh;
  border-radius: 10px;
  background-color: #08252C;
  color: #B7C0C3;
  user-select: none;
-  font-family: Helvetica;
 
 }
 
-#signinbutt p:hover {
+#signinbutt a:hover {
 background-color: #0B323A;
 
 }
 
-#signinbutt p:active {
+#signinbutt a:active {
 background-color: #15515E;
 
 }

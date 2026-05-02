@@ -97,7 +97,7 @@ border: 1px solid #E4D24C;
  text-align: center;
  font-size: 2.5vh;
  font-family: Helvetica;
- user-select: none;
+  user-select: none;
 }
 
 #signinheader {
@@ -166,7 +166,7 @@ background-color: #15515E;
 
 #switchtext {
   margin-right: 2vh;
-  margin-top: 15vh;
+  margin-top: 0;
  color: #DDDEC8;
  padding: 0;
  text-align: right;
