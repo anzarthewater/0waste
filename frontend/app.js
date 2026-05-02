@@ -4,4 +4,4 @@ fetch('https://YOUR-BACKEND.onrender.com/api/hello')
     document.getElementById('message').textContent = data.message;
   });
 
-  fetch('https://YOUR-BACKEND.onrender.com/api/hello')
+  fetch('https://zerowaste-backend-wlls.onrender.com')
