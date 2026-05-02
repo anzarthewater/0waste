@@ -62,7 +62,7 @@ updateprofile(user)
   } else {
  errors("not signed in")
  localStorage.setItem("link", window.location.href);
-  window.location.href ="https://ripnines.github.io/account/signin";
+  window.location.href ="https://zerowaste-frontend.onrender.com/create/create";
   }
   
 })
@@ -75,7 +75,7 @@ updateprofile(user)
     localStorage.removeItem('link');
       window.location.href = link
      } else {
-        window.location.href = "https://ripnines.github.io/"
+        window.location.href = "https://zerowaste-frontend.onrender.com/"
      }
   
 }
@@ -85,5 +85,5 @@ updateprofile(user)
      var link = localStorage.getItem('link');
     var linkRightNow = link;
     localStorage.removeItem('link');
-      window.location.href = "https://ripnines.github.io/account/signin";
+      window.location.href = "https://zerowaste-frontend.onrender.com/auth/user";
     }
