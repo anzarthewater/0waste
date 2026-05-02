@@ -51,7 +51,7 @@ import {
     
     emailVeri()
     localStorage.setItem('email', document.getElementById('email').value); 
-    window.location.href = 'https://zerowaste-frontend.onrender.com/auth/verify';
+    window.location.href = 'https://zerowaste-frontend.onrender.com/verify/verify';
 
     // ...
   })
