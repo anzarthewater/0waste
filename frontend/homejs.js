@@ -26,30 +26,27 @@ import {
   
 //------------------------------------
 
+//------------------------------------
 var profilelink;
 //------------------------------------
-  auth.onAuthStateChanged((user) => {
-	if (user)  {
-   var uid = user.uid;
-   var profilelink = "https://zerowaste-frontend.onrender.com/profile/profile"
-   if (user.displayName) {
-    document.getElementById('signin').textContent = user.displayName;
-   } else {
-    document.getElementById('signin').textContent = "Name";
-   }
-  
-  } else {
-  console.log("not signedin")
-  var profilelink = "https://zerowaste-frontend.onrender.com/auth/login"
-  document.getElementById('signin').textContent = "Sign In";
-  }
 
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    var uid = user.uid;
+    profilelink = "https://zerowaste-frontend.onrender.com/profile/profile"; 
+    if (user.displayName) {
+      document.getElementById('signin').textContent = user.displayName;
+    } else {
+      document.getElementById('signin').textContent = "Name";
+    }
+  } else {
+    console.log("not signed in");
+    profilelink = "https://zerowaste-frontend.onrender.com/auth/login";
+    document.getElementById('signin').textContent = "Sign In";
+  }
 });
 
 document.getElementById('signin').onclick = function() {
-localStorage.setItem('link', window.location.href); 
-window.location.replace(profilelink);
+  localStorage.setItem('link', window.location.href); 
+  window.location.replace(profilelink);
 }
-  
-  
-  
