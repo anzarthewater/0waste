@@ -31,7 +31,7 @@ var profilelink;
   auth.onAuthStateChanged((user) => {
 	if (user)  {
    var uid = user.uid;
-   var profilelink = "https://ripnines.github.io/profile/profile"
+   var profilelink = "https://zerowaste-frontend.onrender.com/profile/profile"
    if (user.displayName) {
     document.getElementById('signin').textContent = user.displayName;
    } else {
@@ -40,7 +40,7 @@ var profilelink;
   
   } else {
   console.log("not signedin")
-  var profilelink = "https://ripnines.github.io/auth/login"
+  var profilelink = "https://zerowaste-frontend.onrender.com/auth/login"
   document.getElementById('signin').textContent = "Sign In";
   }
 
