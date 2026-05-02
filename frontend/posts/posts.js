@@ -90,12 +90,28 @@ export const getPostsByUserId = async (userId) => {
 
 export { auth, db };
 
+document.getElementById('home').onclick = function() {
+  localStorage.setItem('link', window.location.href); 
+  window.location.replace('https://zerowaste-frontend.onrender.com/');
+}
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    var uid = user.uid;
+    profilelink = "https://zerowaste-frontend.onrender.com/profile/profile"; 
+    if (user.displayName) {
+      document.getElementById('signin').textContent = user.displayName;
+    } else {
+      document.getElementById('signin').textContent = "Name";
+    }
+  } else {
+    console.log("not signed in");
+    profilelink = "https://zerowaste-frontend.onrender.com/auth/login";
+    document.getElementById('signin').textContent = "Sign In";
+  }
+});
+
 document.getElementById('signin').onclick = function() {
   localStorage.setItem('link', window.location.href); 
   window.location.replace(profilelink);
-}
-
-document.getElementById('share').onclick = function() {
-  localStorage.setItem('link', window.location.href); 
-  window.location.replace('https://zerowaste-frontend.onrender.com/posts/posts');
 }
