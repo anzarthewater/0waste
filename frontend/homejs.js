@@ -31,7 +31,7 @@ var profilelink;
   auth.onAuthStateChanged((user) => {
 	if (user)  {
    var uid = user.uid;
-   var profilelink = "https://ripnines.github.io/auth/login"
+   var profilelink = "https://ripnines.github.io/profile/profile"
    if (user.displayName) {
     document.getElementById('signin').textContent = user.displayName;
    } else {
