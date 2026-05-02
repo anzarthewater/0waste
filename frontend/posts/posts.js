@@ -90,6 +90,8 @@ export const getPostsByUserId = async (userId) => {
 
 export { auth, db };
 
+let profilelink = "https://zerowaste-frontend.onrender.com/auth/login";
+
 document.getElementById('home').onclick = function() {
   localStorage.setItem('link', window.location.href); 
   window.location.replace('https://zerowaste-frontend.onrender.com/');
