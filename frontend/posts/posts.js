@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebas
 import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
 
-// Firebase configuration
+
 const firebaseConfig = {
     apiKey: "AIzaSyDB-75ye1J71GxZFH2Gt1bBG89sNNVIey8",
     authDomain: "ripnines-b7119.firebaseapp.com",
@@ -12,12 +12,12 @@ const firebaseConfig = {
     appId: "1:541327244207:web:2502bfb6ddfa1d25a6cd5a"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // ✅ Fixed: was getAuth(apssp)
+const auth = getAuth(app); 
 const db = getFirestore(app);
 
-// Create a new post (now accepts title too)
+
 export const createPost = async (title, postContent) => {
     try {
         const user = auth.currentUser;
@@ -41,7 +41,7 @@ export const createPost = async (title, postContent) => {
     }
 };
 
-// Get all posts
+
 export const getAllPosts = async () => {
     try {
         const querySnapshot = await getDocs(collection(db, 'posts'));
@@ -56,7 +56,7 @@ export const getAllPosts = async () => {
     }
 };
 
-// Get posts by username
+
 export const getPostsByUsername = async (username) => {
     try {
         const q = query(collection(db, 'posts'), where('username', '==', username));
@@ -72,7 +72,7 @@ export const getPostsByUsername = async (username) => {
     }
 };
 
-// Get posts by user ID
+
 export const getPostsByUserId = async (userId) => {
     try {
         const q = query(collection(db, 'posts'), where('userId', '==', userId));
@@ -89,3 +89,13 @@ export const getPostsByUserId = async (userId) => {
 };
 
 export { auth, db };
+
+document.getElementById('signin').onclick = function() {
+  localStorage.setItem('link', window.location.href); 
+  window.location.replace(profilelink);
+}
+
+document.getElementById('share').onclick = function() {
+  localStorage.setItem('link', window.location.href); 
+  window.location.replace('https://zerowaste-frontend.onrender.com/posts/posts');
+}

@@ -12,10 +12,10 @@
         <tb>
           <tr>
             <td>
-              <p style="color:#E4D24C;">Home</p>
+              <p>Home</p>
             </td>
             <td>
-              <a style=" text-decoration: none; color:#DDDEC8;" href="https://zerowaste-frontend.onrender.com/posts/post">Share</a>
+              <p style="color:#E4D24C;">Share</p>
             </td>
 
              <td style="float:right; margin-right: 10px; width: auto;">
@@ -29,8 +29,8 @@
         <h1>Posts - 0Waste Community</h1>
 
         <div class="post-form">
-            <h2 style="color: #333; margin-bottom: 15px; font-size: 18px;">Create a New Post</h2>
-            <!-- ✅ No submit handler here — handled in the module script below -->
+            <h2 style="color: #ffffff; margin-bottom: 15px; font-size: 18px;">Create a New Post</h2>
+          
             <div class="form-group">
                 <label for="postTitle">Title:</label>
                 <input type="text" id="postTitle" placeholder="Enter post title" required>
@@ -50,22 +50,21 @@
         </div>
     </div>
 
-    <!-- ✅ Single module script — imports directly from posts.js -->
+
     <script type="module">
         import { getAllPosts, createPost } from './posts.js';
 
-        // Escape HTML to prevent XSS
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text ?? '';
             return div.innerHTML;
         }
 
-        // ✅ async so we can await getAllPosts()
+ 
         async function displayPosts() {
             const postsContainer = document.getElementById('postsContainer');
             try {
-                const posts = await getAllPosts(); // ✅ properly awaited
+                const posts = await getAllPosts();
 
                 if (posts.length === 0) {
                     postsContainer.innerHTML = '<div class="no-posts">No posts yet. Be the first to post!</div>';
@@ -87,7 +86,7 @@
             }
         }
 
-        // Handle post submission
+      
         document.getElementById('submitBtn').addEventListener('click', async () => {
             const title = document.getElementById('postTitle').value.trim();
             const content = document.getElementById('postContent').value.trim();
@@ -95,7 +94,7 @@
             if (!title || !content) return;
 
             try {
-                await createPost(title, content); // ✅ awaited async function
+                await createPost(title, content); 
                 document.getElementById('postTitle').value = '';
                 document.getElementById('postContent').value = '';
                 await displayPosts();
