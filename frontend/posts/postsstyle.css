@@ -1,311 +1,201 @@
-   
 body {
   margin: 0;
   padding: 0;
 }
-
+ 
+/* ── HEADER (unchanged) ── */
 #header {
- background-color: black;
- width:100%;
- height: 45px;
- margin: 0;
- padding: 0;
-overflow: hidden;
+  background-color: black;
+  width: 100%;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-
+ 
 #header table {
   width: 100%;
   height: 100%;
   border: 0;
   border-collapse: collapse;
-
 }
-
+ 
 #header td {
-color: white;
+  color: white;
   width: 10%;
- float: left;
+  float: left;
   user-select: none;
-    text-align: center;
-    font-size: 20px;
-    margin: -9px 2px 0;
-    min-width: 70px;
-    max-width: 100px;
-
+  text-align: center;
+  font-size: 20px;
+  margin: -9px 2px 0;
+  min-width: 70px;
+  max-width: 100px;
 }
-
+ 
 #header td a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
-
+ 
 #header td:hover {
   opacity: 70%;
 }
-
-#startpage {
-
-  background-color: #eeeee4;
-  margin: 0 0 0 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-
  
+/* ── PAGE BACKGROUND ── */
+.container {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 20px 60px;
+  font-family: 'Trebuchet MS', sans-serif;
 }
-
-.bigtitle {
-  font-size: 13vh;
-    text-align: center;
-    margin: 4vh auto 3vh;
-    padding: 0;
-}
-
-.liltitle {
-    font-size: 5vh;
-    text-align: center;
-    margin: 0 auto 5vh;
-    padding: 0;
-    color: #DDDEC8;
-        font-family: 'Trebuchet MS', sans-serif;
-}
-
-#buttoncontainer {
-   display: flex;
-  justify-content: center;
-  align-items: center;
  
-}
-
-
-
-#button {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #DDDEC8;
-
-  height: 6vh;
-  min-width: 150px;
-  padding: 7px;
-  text-align: center;
-  font-size: 4vh;
-  font-family: Verdana;
+/* ── PAGE TITLE ── */
+.container > h1 {
+  font-size: 28px;
+  font-weight: 700;
   color: #051F24;
- white-space: nowrap;
- border-radius: 15px;
-
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
 }
-
-#button:hover {
-  transition: color 0.2s ease ;
-  color:white;
-  
-}
-
-.contain {
-  
-  margin: 0;
-  padding: 0;
-    height: 100vh;
-    width: 100%;   
-       overflow: auto; 
-}
-
-.halfcontain {
-  
-  margin: 0;
-  padding: 0;
-    height: 50vh;
-    width: 100%;   
-       overflow: auto; 
-}
-
-#stepstable {
-
-    margin:0;
-    padding:0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-collapse: collapse;
-  box-sizing: border-box;
-border-spacing: 0;
-
-}
-
-#stepstable td {
-
-  margin:0;
-  padding:0;
-  height: 100%;
-
-  width: 33.33%;
  
-
-  font-size: 20px;
-
-  
-}
-
-.containersteps {
- 
-  background-color: #E4D24C;
-  height: 100%;
-  width: 100%;
-  min-width: 200px;
-  padding: 4vh 3vw 4vh;
-  box-sizing: border-box;
- 
-}
-
-
-.containsteps {
- 
+/* ── CREATE POST FORM ── */
+.post-form {
   background-color: #051F24;
-  border-radius: 15px;
-  height: 100%;
-  width: 100%;
-  padding: 5vh;
-  box-sizing: border-box;
-  color: white;
-  user-select: none;
-    text-align: center;
-
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
  
-    
+.post-form h2 {
+  color: #E4D24C;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
 }
-
-.stepspicture {
-       display: flex;
-  justify-content: center;
-  align-items: center;
-height: 100%;
+ 
+.form-group {
+  margin-bottom: 14px;
+}
+ 
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #DDDEC8;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+ 
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: #0d3038;
+  border: 1px solid #1a4a55;
+  border-radius: 8px;
+  color: #eeeee4;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 14px;
   box-sizing: border-box;
+  transition: border-color 0.2s;
+  outline: none;
 }
-.stepspicture img {
-
-  width: 40%;
-  height: auto;
+ 
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: #4a7a85;
 }
-
-.stepstext p {
-  margin: 2vh 0 2vh;
-    font-size: 5vh;
-     font-family: 'Trebuchet MS', sans-serif;
-    color: #DDDEC8;
+ 
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #E4D24C;
 }
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .post-form {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: bold;
-        }
-
-        textarea, input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .posts-list {
-            margin-top: 30px;
-        }
-
-        .post {
-            padding: 15px;
-            border-left: 4px solid #4CAF50;
-            background-color: #fafafa;
-            margin-bottom: 15px;
-            border-radius: 4px;
-        }
-
-        .post-title {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-
-        .post-content {
-            color: #666;
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-
-        .post-meta {
-            font-size: 12px;
-            color: #999;
-        }
-
-        .no-posts {
-            text-align: center;
-            color: #999;
-            padding: 20px;
-        }
-
-        .error-msg {
-            color: #f44336;
-            text-align: center;
-            padding: 10px;
-        }
+ 
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+ 
+button#submitBtn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  background-color: #E4D24C;
+  color: #051F24;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+ 
+button#submitBtn:hover {
+  background-color: #d4c23c;
+}
+ 
+button#submitBtn:active {
+  transform: scale(0.98);
+}
+ 
+/* ── POSTS LIST ── */
+.posts-list > h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #051F24;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+ 
+.post {
+  background-color: #eeeee4;
+  border-left: 4px solid #E4D24C;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  transition: transform 0.15s;
+}
+ 
+.post:hover {
+  transform: translateX(3px);
+}
+ 
+.post-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #051F24;
+  margin-bottom: 6px;
+}
+ 
+.post-content {
+  font-size: 14px;
+  color: #3a5a60;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+ 
+.post-meta {
+  font-size: 12px;
+  color: #7a9a9f;
+}
+ 
+/* ── EMPTY / ERROR STATES ── */
+.no-posts {
+  text-align: center;
+  color: #7a9a9f;
+  padding: 30px;
+  font-size: 14px;
+}
+ 
+.error-msg {
+  color: #c0392b;
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+}
