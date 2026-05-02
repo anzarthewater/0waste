@@ -183,7 +183,7 @@
         // Display all posts
         function displayPosts() {
             const postsContainer = document.getElementById('postsContainer');
-            const posts = getPosts();
+            const posts = getAllPosts();
             
             if (posts.length === 0) {
                 postsContainer.innerHTML = '<div class="no-posts">No posts yet. Be the first to post!</div>';
