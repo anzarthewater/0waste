@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts - 0Waste</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .post-form {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .posts-list {
+            margin-top: 30px;
+        }
+        
+        .post {
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            background-color: #fafafa;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .post-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .post-content {
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .post-date {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .delete-btn {
+            width: auto;
+            padding: 5px 10px;
+            font-size: 12px;
+            background-color: #f44336;
+            margin-top: 8px;
+        }
+        
+        .delete-btn:hover {
+            background-color: #da190b;
+        }
+        
+        .no-posts {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Posts - 0Waste Community</h1>
+        
+        <div class="post-form">
+            <h2 style="color: #333; margin-bottom: 15px; font-size: 18px;">Create a New Post</h2>
+            <form id="postForm">
+                <div class="form-group">
+                    <label for="postTitle">Title:</label>
+                    <input type="text" id="postTitle" placeholder="Enter post title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postContent">Content:</label>
+                    <textarea id="postContent" placeholder="Share your thoughts..." required></textarea>
+                </div>
+                
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        
+        <div class="posts-list">
+            <h2 style="color: #333; margin-bottom: 15px; font-size: 18px;">Recent Posts</h2>
+            <div id="postsContainer">
+                <div class="no-posts">No posts yet. Be the first to post!</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="posts.js"></script>
+    <script>
+        // Initialize posts on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            displayPosts();
+        });
+        
+        // Handle form submission
+        document.getElementById('postForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            
+            if (title.trim() && content.trim()) {
+                addPost(title, content);
+                document.getElementById('postForm').reset();
+                displayPosts();
+            }
+        });
+        
+        // Display all posts
+        function displayPosts() {
+            const postsContainer = document.getElementById('postsContainer');
+            const posts = getPosts();
+            
+            if (posts.length === 0) {
+                postsContainer.innerHTML = '<div class="no-posts">No posts yet. Be the first to post!</div>';
+                return;
+            }
+            
+            postsContainer.innerHTML = posts.map((post, index) => `
+                <div class="post">
+                    <div class="post-title">${escapeHtml(post.title)}</div>
+                    <div class="post-content">${escapeHtml(post.content)}</div>
+                    <div class="post-date">${new Date(post.date).toLocaleString()}</div>
+                    <button class="delete-btn" onclick="deletePost(${index}); displayPosts();">Delete</button>
+                </div>
+            `).join('');
+        }
+        
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
+
