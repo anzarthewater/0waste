@@ -40,7 +40,7 @@ var profilelink;
   
   } else {
   console.log("not signedin")
-  var profilelink = "https://ripnines.github.io/account/signin"
+  var profilelink = "https://ripnines.github.io/auth/login"
   document.getElementById('signin').textContent = "Sign In";
   }
 
