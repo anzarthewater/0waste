@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>0Waste</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Auth Section -->
+  <div id="auth-section">
+    <h2>Sign Up / Login</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="login()">Login</button>
+    <p id="auth-error"></p>
+  </div>
+
+  <!-- App Section (hidden until logged in) -->
+  <div id="app-section" style="display:none">
+    <h2>Welcome! <span id="user-email"></span></h2>
+    <button onclick="logout()">Logout</button>
+
+    <hr>
+
+    <h3>Make a Post</h3>
+    <input type="text" id="post-title" placeholder="Title" />
+    <textarea id="post-body" placeholder="What do you want to share?"></textarea>
+    <button onclick="submitPost()">Post</button>
+
+    <hr>
+
+    <h3>All Posts</h3>
+    <div id="posts-list"></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
