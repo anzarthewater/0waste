@@ -1,7 +1,6 @@
-fetch('https://YOUR-BACKEND.onrender.com/api/hello')
+fetch('https://zerowaste-backend-wlls.onrender.com')
   .then(res => res.json())
   .then(data => {
     document.getElementById('message').textContent = data.message;
   });
 
-  fetch('https://zerowaste-backend-wlls.onrender.com')
