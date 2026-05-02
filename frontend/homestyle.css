@@ -191,7 +191,8 @@ height: 100%;
 
 .stepstext p {
   margin: 2vh 0 2vh;
-    font-size: 5vh;
+    font-size: 8vh;
      font-family: 'Trebuchet MS', sans-serif;
     color: #DDDEC8;
+    margin-left: 10px;
 }
