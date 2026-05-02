@@ -50,3 +50,8 @@ document.getElementById('signin').onclick = function() {
   localStorage.setItem('link', window.location.href); 
   window.location.replace(profilelink);
 }
+
+document.getElementById('share').onclick = function() {
+  localStorage.setItem('link', window.location.href); 
+  window.location.replace('https://zerowaste-frontend.onrender.com/posts/posts');
+}
